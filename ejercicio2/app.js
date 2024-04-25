@@ -93,13 +93,10 @@ if (nombre == "Aaron" || pase == "VIP") {
     if (compra == true) {
         dinero = parseInt(prompt("Ingresa tu dinero disponible:"))
         if (dinero >= 1000) {
-            confirmarCompra = confirm("Confirma la compra de tu entrada")
-            if (confirmarCompra == true) {
-                console.log("Bienvenido al club MINDHUB")
-            } else console.log("No se completo la compra. Te esperamos en otra oportunidad")
-        } else console.log("Gracias por visitarnos, te esperamos en otra oportunidad")
+            console.log("¡Compra exitosa! Bienvenido al club MINDHUB")
+        } else console.log("No te alcanza para la compra. Te esperamos en otra oportunidad")
     } else console.log("Gracias por visitarnos, te esperamos en otra oportunidad")
-}
+} else console.log("Gracias por visitarnos, te esperamos en otra oportunidad")
 
 //Punto 8
 let numeroIncognita = 7
