@@ -22,6 +22,15 @@ switch (varControl) {
 }
 
 //Ejercicios
+//Declaracion de las variables a utilizar
+//Int
+let num1, num2, num3, edad, altura, vision, dinero, numDocumento, fechaNacimiento, estatura
+//String
+let nombre, jugador1, jugador2, color, operacion, lugarNacimiento, rh, lugarExpedicion, sexo
+//Boolean
+let pase, entrada, entrada1, compra, datos
+
+console.log("---- Resolución ----")
 //Puntos 1 al 4
 num1 = prompt("Ingresa un numero:")
 num2 = prompt("Ingresa otro numero:")
@@ -188,8 +197,8 @@ if (edad > 100) {
 }
 
 //Punto 10
-jugador1 = prompt("Jugador 1: Ingrese PIEDRA PAPEL o TIJERAS")
-jugador2 = prompt("Jugador 2: Ingrese PIEDRA PAPEL o TIJERAS")
+jugador1 = prompt("Jugador 1: Ingrese PIEDRA PAPEL o TIJERAS").toUpperCase()
+jugador2 = prompt("Jugador 2: Ingrese PIEDRA PAPEL o TIJERAS").toUpperCase()
 if (jugador1 == "PIEDRA" && jugador2 == "TIJERAS" || jugador1 == "PAPEL" && jugador2 == "PIEDRA" || jugador1 == "TIJERAS" && jugador2 == "PAPEL") {
     console.log("El jugador 1 ha ganado")
 }
@@ -203,9 +212,7 @@ if (jugador1 == jugador2) {
 //Punto 11
 color = prompt("Ingrese un color:")
 switch (color) {
-    case "blanco": {
-        console.log("Falta de color")
-    } break
+    case "blanco":
     case "negro": {
         console.log("Falta de color")
     } break
@@ -230,31 +237,33 @@ switch (color) {
 }
 
 //Punto 12
-num1 = prompt("Ingresa el primer numero:")
-num2 = prompt("Ingresa el segundo numero:")
-operacion = prompt("Ingresa la operacion que deseas realizar (Suma, resta, multiplicacion o division):")
+num1 = parseInt(prompt("Ingresa el primer numero:"))
+num2 = parseInt(prompt("Ingresa el segundo numero:"))
+operacion = prompt("Ingresa la operacion que deseas realizar (suma, resta, multiplicacion o division):").toLowerCase()
 switch (operacion) {
-    case "suma": {
-        sumaNum = num1 + num2
-        console.log("El resultado de tu suma es: " + sumaNum)
-    } break
-    case "resta": {
-        restaNum = num1 - num2
-        console.log("El resultado de tu resta es: " + restaNum)
-    } break
-    case "multiplicacion": {
-        multiNum = num1 * num2
-        console.log("El resultado de tu multiplicacion es: " + multiNum)
-    } break
-    case "division": {
-        divNum = num1 / num2
+    case "suma":
+        suma = num1 + num2
+        console.log("El resultado de tu suma es: " + suma)
+        break
+    case "resta":
+        resta = num1 - num2
+        console.log("El resultado de tu resta es: " + resta)
+        break
+    case "multiplicacion":
+        multiplicacion = num1 * num2
+        console.log("El resultado de tu multiplicacion es: " + multiplicacion)
+        break
+    case "division":
         if (num2 == 0) {
-            console.log("ERROR. No es posible dividir entre 0")
-        } else console.log("El resultado de tu division es: " + divNum)
-    } break
-    default: {
-        console.log("No tenemos esa operacion disponible aun")
-    } break
+            console.log("No es posible dividir entre cero")
+        } else {
+            division = num1 / num2
+            console.log("El resultado de tu division es: " + division)
+        }
+        break
+    default:
+        console.log("No tenemos esa operacion disponible aún")
+        break
 }
 
 //Punto 13
