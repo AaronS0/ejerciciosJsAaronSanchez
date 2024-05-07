@@ -1,16 +1,22 @@
 //Variables
-let estatura, masa, resultadoImc, estaturaM2, pesos, dolar, resultadoDivisa
-estatura = parseInt(document.getElementById("estatura"))
-masa = parseInt(document.getElementById("masa"))
-pesos = parseFloat(document.getElementById("pesos"))
-dolar = parseFloat(document.getElementById("dolar"))
-//Operaciones
-estaturaM2 = (estatura / 100) * (estatura / 100)
-resultadoImc = masa / estaturaM2
-if (dolar == 0) {
-    resultadoDivisa = pesos * 0.0002567
-} else if (pesos == 0) {
-    resultadoDivisa = dolar * 3892.52
-}
-//Eventos
+let estatura, masa, resultadoImc, estaturaM2, boton, pesos, dolar, resultadoDivisa
+estatura = document.getElementById("estatura")
+masa = document.getElementById("masa")
+boton = document.getElementById("boton")
 
+pesos = document.getElementById("pesos")
+dolar = document.getElementById("dolar")
+
+if (dolar.value != 0) {
+    resultadoDivisa = dolar.value * 3892.52
+} else if (pesos.value != 0) {
+    resultadoDivisa = pesos.value * 0.0002567
+}
+
+
+//Eventos
+boton.addEventListener("click", function () {
+    estaturaM2 = (estatura.value / 100) * (estatura.value / 100)
+    resultadoImc = masa.value / estaturaM2
+    document.getElementById("resultado").value = resultadoImc.toFixed(3)
+})

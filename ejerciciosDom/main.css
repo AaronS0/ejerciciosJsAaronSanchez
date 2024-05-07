@@ -1,6 +1,20 @@
-#imc, #conversor{
-    width: 45vw; height: 80vh;
+body{
+    padding: 0;
+    margin: 0;
+    background-color: darkgrey;
 }
-main{
+#imc, #conversor {
+    width: 45vw;
+    height: 80vh;
+    border: solid 3px green;
+}
+#imc {
+    border: solid 3px black;
+    width: 25vw;
+    border-radius: 25%;
+    background-color: rgb(128, 213, 215);
+}
+
+main {
     height: 90vh;
 }
