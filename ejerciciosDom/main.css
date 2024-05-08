@@ -1,20 +1,23 @@
-body{
+body {
     padding: 0;
     margin: 0;
     background-color: darkgrey;
 }
-#imc, #conversor {
-    width: 45vw;
-    height: 80vh;
-    border: solid 3px green;
-}
-#imc {
-    border: solid 3px black;
-    width: 25vw;
-    border-radius: 25%;
-    background-color: rgb(128, 213, 215);
-}
 
 main {
     height: 90vh;
+}
+
+#imc {
+    border: solid 3px rgb(94, 210, 86);
+    width: 25vw; height: 80vh;
+    border-radius: 25%;
+    background-color: rgb(134, 215, 128);
+}
+
+#conversor {
+    border: solid 3px rgb(70, 207, 209);
+    width: 35vw; height: 80vh;
+    border-radius: 25%;
+    background-color: rgb(128, 213, 215);
 }
