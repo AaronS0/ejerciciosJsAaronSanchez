@@ -3,6 +3,7 @@ let estatura, masa, resultadoImc, estaturaM2, boton, pesos, dolar, resultadoDivi
 estatura = document.getElementById("estatura")
 masa = document.getElementById("masa")
 boton = document.getElementById("boton")
+
 pesos = document.getElementById("pesos")
 dolar = document.getElementById("dolar")
 
@@ -12,11 +13,12 @@ boton.addEventListener("click", function () {
     resultadoImc = masa.value / estaturaM2
     document.getElementById("resultado").value = resultadoImc.toFixed(3)
 })
-document.getElementById("pesos").addEventListener("keydown", function myFunction() {
+
+pesos.addEventListener("input", function myFunction() {
     resultadoDivisa = pesos.value * 0.0002567
-    document.getElementById("dolar").value = resultadoDivisa.toFixed(3)
+    dolar.value = resultadoDivisa.toFixed(3)
 })
-document.getElementById("dolar").addEventListener("keydown", function myFunction() {
+dolar.addEventListener("input", function myFunction() {
     resultadoDivisa = dolar.value * 3892.52
-    document.getElementById("pesos").value = resultadoDivisa.toFixed(3)
+    pesos.value = resultadoDivisa.toFixed(3)
 })

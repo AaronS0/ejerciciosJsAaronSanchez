@@ -21,3 +21,7 @@ main {
     border-radius: 25%;
     background-color: rgb(128, 213, 215);
 }
+
+#contenedor{
+    border: solid 2px green;
+}
