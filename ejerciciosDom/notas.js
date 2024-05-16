@@ -1,4 +1,4 @@
-let titulo, texto, notas, contenedor, btnGuardar, btnBorrar
+let idGlobal, titulo, texto, notas, contenedor, btnGuardar, btnBorrar
 notas = [
     {
         id: 1,
@@ -14,13 +14,14 @@ notas = [
     }
 ]
 
+idGlobal = 2
 contenedor = document.getElementById("contenedorTarjetas")
 titulo = document.getElementById("titulo")
 texto = document.getElementById("nota")
 btnGuardar = document.getElementById("botonGuardar")
 btnBorrar = document.getElementById("botonBorrarNota")
 
-function mostrarNotas(lista){
+function mostrarNotas(lista) {
     for (let i = 0; i < lista.length; i++) {
         let card = document.createElement("div")
         card.innerHTML = `
@@ -36,15 +37,37 @@ function mostrarNotas(lista){
 }
 mostrarNotas(notas)
 
-function borrarNota(index){
+function agregarNota(titulo, texto, array) {
+    titulo.trim()
+    texto.trim()
+    let objeto = {
+        id: idGlobal++,
+        titulo: titulo,
+        texto: texto,
+        realizada: false
+    }
+    array.push(objeto)
+    contenedor.innerHTML = ""
+    limpiar()
+    mostrarNotas(notas)
+}
+
+btnGuardar.addEventListener("click", function () {
+    agregarNota(titulo.value, texto.value, notas)
+})
+
+btnBorrar.addEventListener("click", function () {
+    limpiar()
+})
+
+function borrarNota(index) {
     notas.splice(index, 1)
     console.log(notas)
     contenedor.innerHTML = ""
     mostrarNotas(notas)
 }
 
-function agregarNota(titulo, texto){
-    titulo.trim()
-    texto.trim()
-    let objeto
+function limpiar() {
+    titulo.value = ""
+    texto.value = ""
 }
