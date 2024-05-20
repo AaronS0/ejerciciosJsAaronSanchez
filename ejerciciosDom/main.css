@@ -5,23 +5,54 @@ body {
 }
 
 main {
-    height: 90vh;
+    height: 120vh;
+    margin-top: 10vw;
 }
 
 #imc {
     border: solid 3px rgb(94, 210, 86);
-    width: 25vw; height: 80vh;
+    width: 25vw;
+    height: 80vh;
     border-radius: 25%;
     background-color: rgb(134, 215, 128);
 }
 
 #conversor {
     border: solid 3px rgb(70, 207, 209);
-    width: 35vw; height: 80vh;
+    width: 35vw;
+    height: 80vh;
     border-radius: 25%;
     background-color: rgb(128, 213, 215);
 }
 
-#contenedor{
-    border: solid 2px green;
+#bodyNotas {
+    background-image: url(./images/bg.png);
+    background-size: cover;
+}
+
+#navbar {
+    background-color: #DC143C;
+}
+
+#contenedorTarjetas {
+    margin-top: 2vw;
+    margin-left: 12vw;
+}
+
+#ingresar {
+    width: 40vw;
+    height: 30vh;
+}
+
+#botones {
+    height: 20vh;
+}
+
+#nota {
+    height: 20vh;
+}
+
+#busqueda {
+    margin-top: 2vw;
+    margin-left: 60vw;
 }

@@ -10,40 +10,39 @@
     <link rel="stylesheet" href="main.css">
 </head>
 
-<body>
+<body id="bodyNotas">
     <header>
-        <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+        <nav class="navbar border-bottom border-body" id="navbar">
             <form class="container-fluid justify-content-center">
-                <a href="index.html"><button class="btn btn-outline-success me-2" type="button">Menú
+                <a href="index.html"><button class="btn me-2" type="button">Menú
                         principal</button></a>
-                <a href="#"><button class="btn btn-outline-success" type="button">Notas</button></a>
+                <a href="#"><button class="btn" type="button">Notas</button></a>
             </form>
         </nav>
     </header>
 
     <main>
-        <div class="w-50 m-auto d-flex flex-column align-items-center" id="contenedor">
-            <h3>Nueva nota</h3>
-            <div class="d-flex">
-                <div class="w-75">
-                    <input type="text" class="form-control" id="titulo" placeholder="Ingresa un titulo" required>
-                    <textarea name="textoNota" id="nota" placeholder="Escribe tu nota aqui" required></textarea>
+        <div class="d-flex flex-column align-items-center" id="contenedor">
+            <h2>Nueva nota</h2>
+            <div class="d-flex justify-content-around w-75">
+                <div class="d-flex flex-column justify-content-around" id="ingresar">
+                    <input type="text" class="form-control" id="titulo" placeholder="Ingresa un titulo">
+                    <textarea name="textoNota" id="nota" placeholder="Escribe tu nota aqui"></textarea>
                 </div>
-                <div class="w-50 d-flex flex-column">
+                <div class="w-25 d-flex flex-column justify-content-around" id="botones">
                     <button class="btn btn-success" id="botonGuardar">Guardar</button>
                     <button class="btn btn-danger" id="botonBorrarNota">Borrar</button>
                 </div>
             </div>
         </div>
-        <div class="w-50 m-auto">
-            <input type="text">
+        <div class="d-flex" id="busqueda">
+            <input type="text" placeholder="🔍" id="realizadas">
             <div class="form-check form-switch ms-3">
-                <input class="form-check-input" type="checkbox" role="switch" id="realizadas">
+                <input class="form-check-input" type="checkbox" role="switch" id="mostrarRealizadas">
                 <label class="form-check-label" for="realizadas">Realizadas</label>
             </div>
-            <div id="contenedorTarjetas">
-
-            </div>
+        </div>
+        <div class="w-75 d-flex flex-wrap" id="contenedorTarjetas">
         </div>
 
     </main>
