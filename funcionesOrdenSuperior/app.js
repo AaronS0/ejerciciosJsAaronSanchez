@@ -65,7 +65,8 @@ let descuentos = []
 console.log("-- Arreglo original --")
 console.log(productos)
 
-descuentos = productos.map(producto => producto * 0.8)
+descuentos = productos.map(producto => {
+    return producto.precio = producto.precio * 0.8)
 console.log("-- Arreglo nuevo --")
 console.log(descuentos)
 
