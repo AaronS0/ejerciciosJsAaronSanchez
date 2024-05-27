@@ -1,0 +1,28 @@
+body{
+  background-image: url(https://descorcha.com/blog/wp-content/uploads/2023/05/Tipos-de-cervezas-lager.jpg);
+  background-size: cover;
+}
+
+table {
+  width: 100%;
+  text-align: center;
+}
+
+td,
+th {
+  border: 1px solid black;
+}
+
+.white-with-blue-shadow {
+  text-shadow:
+    1px 1px 2px black,
+    0 0 1em blue,
+    0 0 0.2em blue;
+  color: white;
+  font:
+    1.2em Georgia,
+    "Bitstream Charter",
+    "URW Bookman L",
+    "Century Schoolbook L",
+    serif;
+}
