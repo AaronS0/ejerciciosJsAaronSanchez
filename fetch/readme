@@ -8,7 +8,7 @@ Tener imágenes base descargadas o en linea para armar un diseño organizado.
 
 2. Crear la pagina detalles,✅ se debe crear una pagina que permita visualizar la información detallada del departamento❌ y una serie de tarjetas donde se vean todas las ciudades y áreas naturales pertenecientes al departamento. (Consejo Checkbox ciudad y areas).❌
 
-3. Crear una paginas especies invasoras✅ donde se muestren de manera ordenada en una tabla la información de las especies, la tabla deberá tener las siguientes columnas Nombre, Nombre Cientifico, impacto, Manejo, Nivel de riesgo, Imagen❌ y si el nivel de riesgo es 1 pintar la fila de color azul, si el nivel de riesgo es 2 pintar la fila de color verde.❌
+3. Crear una pagina de especies invasoras donde se muestren de manera ordenada en una tabla la información de las especies, la tabla deberá tener las siguientes columnas; Nombre, Nombre Cientifico, Impacto, Manejo, Nivel de riesgo, Imagen. Si el nivel de riesgo es 1 pintar la fila de color azul y si el nivel de riesgo es 2 pintar la fila de color verde.✅
 
 4. Para la pagina home y detalles deben tener un filtro de texto✅ que permita filtrar las tarjetas por nombre,❌ y además implementar otro filtro a elección según la información recibida.✅
 

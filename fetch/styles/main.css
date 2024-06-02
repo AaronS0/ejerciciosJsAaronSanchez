@@ -26,9 +26,9 @@ main {
 #mapaColombia {
     width: 70vh;
     border-radius: 20%;
-    -webkit-box-shadow: -15px 15px 30px 0px rgba(153, 153, 153, 0.75);
-    -moz-box-shadow: -15px 15px 30px 0px rgba(153, 153, 153, 0.75);
-    box-shadow: -15px 15px 30px 0px rgba(153, 153, 153, 0.75);
+    -webkit-box-shadow: -15px 15px 30px 0px rgba(232, 211, 178, 0.8);
+    -moz-box-shadow: -15px 15px 30px 0px rgba(232, 211, 178, 0.8);
+    box-shadow: -15px 15px 30px 0px rgba(232, 211, 178, 0.8);
 }
 
 h3 {
@@ -43,9 +43,9 @@ h3 {
     border-radius: 1%;
     padding: 2%;
     font-family: Georgia, 'Times New Roman', Times, serif;
-    -webkit-box-shadow: -25px 15px 40px 0px rgba(168, 168, 168, 1);
-    -moz-box-shadow: -25px 15px 40px 0px rgba(168, 168, 168, 1);
-    box-shadow: -25px 15px 40px 0px rgba(168, 168, 168, 1);
+    -webkit-box-shadow: -25px 15px 40px 0px rgba(232, 211, 178, 0.8);
+    -moz-box-shadow: -25px 15px 40px 0px rgba(232, 211, 178, 0.8);
+    box-shadow: -25px 15px 40px 0px rgba(232, 211, 178, 0.8);
 }
 
 .card {
@@ -54,7 +54,9 @@ h3 {
     width: 20vw;
     height: 10vh;
     background: linear-gradient(to bottom left, #5cfaab, #bfff5f);
-   
+    -webkit-box-shadow: -12px 12px 7px 0px rgba(232, 211, 178, 0.4);
+    -moz-box-shadow: -12px 12px 7px 0px rgba(232, 211, 178, 0.4);
+    box-shadow: -12px 12px 7px 0px rgba(232, 211, 178, 0.4);
 }
 
 #navBusqueda {
