@@ -45,7 +45,7 @@ function crearTarjeta(contenedor, info, region) {
             <h6 class="card-subtitle mb-2 text-body-secondary">Región: ${region.name}</h6>
             <p class="card-text">Poblacion: ${info.population}</p>
             <p class="card-text">${info.description.slice(0, 220)}...</p>
-            <a href="#" class="btn btn-light">Detalles</a>
+            <a href="./detalles.html?value=${info.id}" class="btn btn-light">Detalles</a>
         </div>
         `
     contenedor.appendChild(nuevaTarjeta)
@@ -77,3 +77,54 @@ function crearCheck(contenedor, regiones) {
     contenedor.appendChild(nuevoContenedorCheck)
 }
 
+// function filtrarCheck(arregloDepartamentos, arreglo) {
+//     arregloDepartamentos = Array.from(arregloDepartamentos)
+//     arregloDepartamentos = arregloDepartamentos.map(checkbox => checkbox.value)
+//     let departamentosFiltrados = arreglo.filter(regiones => arregloDepartamentos.includes(regiones))
+//     return departamentosFiltrados
+// }
+
+function filtrarText(texto, arreglo) {
+    let departamentosFiltrados2 = arreglo.filter(departamentos => departamentos.name.toLowerCase().includes(texto.toLowerCase()))
+    return departamentosFiltrados2
+}
+
+// contenedorCheck.addEventListener('change', () => {
+//     let departamentosFiltrados = departamentosPorId
+//     let checkboxChecked = document.querySelectorAll("input[type=checkbox]:checked")
+
+//     if (checkboxChecked.length != 0) {
+//         departamentosFiltrados = filtrarCheck(checkboxChecked, checkFiltro)
+//     }
+//     let texto = document.getElementById("busqueda").value
+//     if (texto != "") {
+//         departamentosFiltrados = filtrarText(texto, checkFiltro)
+//     }
+//     pintarTarjetas(departamentosFiltrados, contenedorTarjetas)
+// })
+
+let buscar = document.getElementById("busqueda")
+buscar.addEventListener('input', (filtroBusqueda) => {
+    let checkboxChecked = document.querySelectorAll("input[type=checkbox]:checked")
+    let texto = document.getElementById("busqueda").value
+    let departamentosFiltrados2 = filtrarText(texto, departamentosPorId)
+
+    if (checkboxChecked.length != 0) {
+        departamentosFiltrados2 = filtrarCheck(checkboxChecked, departamentosFiltrados2)
+    } if (filtroBusqueda.target.value != "") {
+        pintarTarjetas(departamentosFiltrados2, contenedorTarjetas)
+    } else {
+        pintarTarjetas(departamentosFiltrados2, contenedorTarjetas)
+    } if (departamentosFiltrados2 == "") {
+        alerta("No se encontraron coincidencias con la búsqueda")
+    }
+})
+
+function alerta(mensaje) {
+    contenedorTarjetas.innerHTML = ""
+    const alert = document.createElement("div")
+    alert.className = "alert alert-info p-4 my-5"
+    alert.setAttribute("role", "alert")
+    alert.innerText = mensaje
+    contenedorTarjetas.appendChild(alert)
+}
