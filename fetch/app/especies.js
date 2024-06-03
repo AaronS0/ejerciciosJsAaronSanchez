@@ -32,8 +32,8 @@ function crearFila(padreTabla, info) {
         <tr>
             <td>${info.name}</td>
             <td>${info.scientificName}</td>
-            <td>${info.impact}</td>
-            <td>${info.manage}</td>
+            <td>${info.impact.charAt(0).toUpperCase()+info.impact.slice(1)}</td>
+            <td>${info.manage.charAt(0).toUpperCase()+info.manage.slice(1)}</td>
             <td>${info.riskLevel}</td>
             <td><img src="${info.urlImage}" alt="${info.name}"></td>
         </tr>
