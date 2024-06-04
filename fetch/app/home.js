@@ -17,7 +17,9 @@ function mostrarTexto(texto, contenedor) {
 let departamentosPorId = []
 fetch(urlDepartamentos).then(respuestaD => respuestaD.json())
     .then(departamentos => {
-        departamentosPorId = departamentos.sort((a, b) => a.id - b.id)
+        departamentos.sort((a, b) => a.id - b.id).forEach(filtrar => {
+            departamentosPorId.push(filtrar)
+        })
         pintarTarjetas(departamentosPorId, contenedorTarjetas)
     })
 
@@ -31,7 +33,6 @@ function pintarTarjetas(info, contenedor) {
                     crearTarjeta(contenedorTarjetas, info[i], region[j])
                 }
             }
-
         }
     })
 }
@@ -80,14 +81,16 @@ function crearCheck(contenedor, regiones) {
 // function filtrarCheck(arregloDepartamentos, arreglo) {
 //     arregloDepartamentos = Array.from(arregloDepartamentos)
 //     arregloDepartamentos = arregloDepartamentos.map(checkbox => checkbox.value)
-//     let departamentosFiltrados = arreglo.filter(regiones => arregloDepartamentos.includes(regiones))
+//     let departamentosFiltrados = arreglo.filter(regiones => {
+//         arregloDepartamentos.includes(regiones)
+//         console.log(arregloDepartamentos);
+
+//         console.log(regiones);
+//         console.log(checkFiltro);
+//     })
+//     console.log(departamentosFiltrados);
 //     return departamentosFiltrados
 // }
-
-function filtrarText(texto, arreglo) {
-    let departamentosFiltrados2 = arreglo.filter(departamentos => departamentos.name.toLowerCase().includes(texto.toLowerCase()))
-    return departamentosFiltrados2
-}
 
 // contenedorCheck.addEventListener('change', () => {
 //     let departamentosFiltrados = departamentosPorId
@@ -96,26 +99,34 @@ function filtrarText(texto, arreglo) {
 //     if (checkboxChecked.length != 0) {
 //         departamentosFiltrados = filtrarCheck(checkboxChecked, checkFiltro)
 //     }
-//     let texto = document.getElementById("busqueda").value
+
 //     if (texto != "") {
 //         departamentosFiltrados = filtrarText(texto, checkFiltro)
 //     }
 //     pintarTarjetas(departamentosFiltrados, contenedorTarjetas)
 // })
 
+function filtrarText(texto, arreglo) {
+    let departamentosFiltrados = arreglo.filter(departamentos => departamentos.name.toLowerCase().includes(texto.toLowerCase()))
+    return departamentosFiltrados
+}
+
+let texto = document.getElementById("busqueda").value
 let buscar = document.getElementById("busqueda")
 buscar.addEventListener('input', (filtroBusqueda) => {
     let checkboxChecked = document.querySelectorAll("input[type=checkbox]:checked")
-    let texto = document.getElementById("busqueda").value
-    let departamentosFiltrados2 = filtrarText(texto, departamentosPorId)
+    let departamentosFiltrados = filtrarText(texto, departamentosPorId)
 
     if (checkboxChecked.length != 0) {
-        departamentosFiltrados2 = filtrarCheck(checkboxChecked, departamentosFiltrados2)
-    } if (filtroBusqueda.target.value != "") {
-        pintarTarjetas(departamentosFiltrados2, contenedorTarjetas)
-    } else {
-        pintarTarjetas(departamentosFiltrados2, contenedorTarjetas)
-    } if (departamentosFiltrados2 == "") {
+        departamentosFiltrados = filtrarCheck(checkboxChecked, departamentosFiltrados)
+    }
+    if (filtroBusqueda.target.value != "" && departamentosFiltrados != "") {
+        pintarTarjetas(departamentosFiltrados, contenedorTarjetas)
+    }
+    if (filtroBusqueda.target.value == "") {
+        pintarTarjetas(departamentosPorId, contenedorTarjetas)
+    }
+    if (departamentosFiltrados.length === 0) {
         alerta("No se encontraron coincidencias con la búsqueda")
     }
 })

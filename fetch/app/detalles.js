@@ -25,7 +25,9 @@ fetch(urlDepartamentos).then(respuesta => respuesta.json())
 let ciudadesPorId = []
 fetch(urlCiudades).then(respuesta => respuesta.json())
     .then(ciudades => {
-        ciudadesPorId = ciudades.sort((a, b) => a.id - b.id)
+        ciudades.sort((a, b) => a.id - b.id).forEach(filtrar => {
+            ciudadesPorId.push(filtrar)
+        })
         pintarTarjetas(ciudadesPorId, contenedorTarjetas)
     })
 
@@ -57,4 +59,76 @@ function crearTarjeta(contenedor, info) {
             </div>
             `
     contenedor.appendChild(nuevaTarjeta)
+}
+
+function filtrarCiudades(texto, arreglo) {
+    let ciudadesFiltradas = arreglo.filter(ciudades => ciudades.name.toLowerCase().includes(texto.toLowerCase()))
+    return ciudadesFiltradas
+}
+
+function filtrarAreas(texto, arreglo) {
+    let areasFiltradas = arreglo.filter(areas => areas.toLowerCase().includes(texto.toLowerCase()))
+    return areasFiltradas
+}
+
+// function filtrarCheck(arregloCiudades, arreglo) {
+//     arregloCiudades = Array.from(arregloCiudades)
+//     arregloCiudades = arregloCiudades.map(checkbox => checkbox.value)
+//     let departamentosFiltrados = arreglo.filter(regiones => arregloCiudades.includes(regiones))
+//     return departamentosFiltrados
+// }
+
+// contenedorCheck.addEventListener('change', () => {
+//     let ciudadesFiltradas = ciudadesPorId
+//     let areasFiltradas = areasPorId
+//     let checkboxChecked = document.querySelectorAll("input[type=checkbox]:checked")
+
+//     if (checkboxChecked.length != 0) {
+//         ciudadesFiltradas = filtrarCheck(checkboxChecked, checkFiltro)
+//     }
+//     let texto = document.getElementById("busqueda").value
+//     if (texto != "") {
+//         ciudadesFiltradas = filtrarText(texto, checkFiltro)
+//     }
+//     pintarTarjetas(ciudadesFiltradas, contenedorTarjetas)
+// })
+
+let buscar = document.getElementById("busqueda")
+buscar.addEventListener('input', (filtroBusqueda) => {
+    let checkboxChecked = document.querySelectorAll("input[type=checkbox]:checked")
+    let texto = document.getElementById("busqueda").value
+    let ciudadesFiltradas = filtrarCiudades(texto, ciudadesPorId)
+    let areasFiltradas = filtrarAreas(texto, areasPorId)
+
+    if (checkboxChecked.length != 0) {
+        ciudadesFiltradas = filtrarCheck(checkboxChecked, ciudadesFiltradas)
+        areasFiltradas = filtrarCheck(checkboxChecked, areasFiltradas)
+    }
+    if (filtroBusqueda.target.value != "" && ciudadesFiltradas != "") {
+        contenedorTarjetas.innerHTML = ""
+        pintarTarjetas(ciudadesFiltradas, contenedorTarjetas)
+        pintarTarjetas(areasFiltradas, contenedorTarjetas)
+    }
+    if (filtroBusqueda.target.value != "" && areasFiltradas != "") {
+        contenedorTarjetas.innerHTML = ""
+        pintarTarjetas(ciudadesFiltradas, contenedorTarjetas)
+        pintarTarjetas(areasFiltradas, contenedorTarjetas)
+    }
+    if (filtroBusqueda.target.value == "") {
+        contenedorTarjetas.innerHTML = ""
+        pintarTarjetas(ciudadesPorId, contenedorTarjetas)
+        pintarTarjetas(areasPorId, contenedorTarjetas)
+    }
+    if (ciudadesFiltradas.length === 0 && areasFiltradas.length === 0) {
+        alerta("No se encontraron coincidencias con la búsqueda")
+    }
+})
+
+function alerta(mensaje) {
+    contenedorTarjetas.innerHTML = ""
+    const alert = document.createElement("div")
+    alert.className = "alert alert-info p-4 my-5"
+    alert.setAttribute("role", "alert")
+    alert.innerText = mensaje
+    contenedorTarjetas.appendChild(alert)
 }
