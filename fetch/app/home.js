@@ -99,7 +99,7 @@ function crearCheck(contenedor, regiones) {
 //     if (checkboxChecked.length != 0) {
 //         departamentosFiltrados = filtrarCheck(checkboxChecked, checkFiltro)
 //     }
-
+//     let texto = document.getElementById("busqueda").value
 //     if (texto != "") {
 //         departamentosFiltrados = filtrarText(texto, checkFiltro)
 //     }
@@ -111,12 +111,12 @@ function filtrarText(texto, arreglo) {
     return departamentosFiltrados
 }
 
-let texto = document.getElementById("busqueda").value
+
 let buscar = document.getElementById("busqueda")
 buscar.addEventListener('input', (filtroBusqueda) => {
     let checkboxChecked = document.querySelectorAll("input[type=checkbox]:checked")
+    let texto = document.getElementById("busqueda").value
     let departamentosFiltrados = filtrarText(texto, departamentosPorId)
-
     if (checkboxChecked.length != 0) {
         departamentosFiltrados = filtrarCheck(checkboxChecked, departamentosFiltrados)
     }
