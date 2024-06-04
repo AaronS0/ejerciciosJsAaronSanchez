@@ -39,7 +39,7 @@ function pintarTarjetas(info, contenedor) {
 
 function crearTarjeta(contenedor, info, region) {
     let nuevaTarjeta = document.createElement("div")
-    nuevaTarjeta.className = "card"
+    nuevaTarjeta.className = "card mb-3"
     nuevaTarjeta.innerHTML = `
         <div class="card-body d-flex flex-column justify-content-around align-items-center">
             <h5 class="card-title">${info.name}</h5>
